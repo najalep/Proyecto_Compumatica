@@ -1,0 +1,13 @@
+{% extends 'delete.html' %}
+
+{% block button %}
+    <div class="card-footer">
+        <button type="submit" class="btn btn-primary btn-flat btnTest">
+            <i class="fas fa-plus"></i> Borrar Registro
+        </button>
+        <a href="{% url 'client_list' %}" class="btn btn-danger btn-flat">
+            <i class="fas fa-times"></i> Cancelar
+        </a>
+    </div>
+
+{% endblock %}

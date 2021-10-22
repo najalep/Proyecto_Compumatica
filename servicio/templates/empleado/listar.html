@@ -1,0 +1,54 @@
+{% extends 'list.html' %}
+
+
+{% block columns %}
+    <tr>
+        <th scope="col" style="width: 5%;">Nro</th>
+        <th scope="col" style="width: 15%;">Nombres</th>
+        <th scope="col" style="width: 15%;">Apellidos</th>
+        <th scope="col" style="width: 10%;">Cedula</th>
+        <th scope="col" style="width: 20%;">Fecha de Nacimiento</th>
+        <th scope="col" style="width: 15%;">Direccion</th>
+        <th scope="col" style="width: 10%;">Area</th>
+        <th scope="col" style="width: 10%;">Opciones</th>
+    </tr>
+{% endblock %}
+
+{% block rows %}
+    {% for c in object_list %}
+        <tr>
+            <td>{{ c.id }}</td>
+            <td>{{ c.names }}</td>
+            <td>{{ c.surnames }}</td>
+            <td>{{ c.cedula }}</td>
+            <td>{{ c.birthday }}</td>
+            <td>{{ c.address }}</td>
+            <td>{{ c.area }}</td>
+            <td>
+                <a href="{% url 'empleado_update' c.id %}" type="button" class="btn btn-warning btn-xs btn-flat ">
+                    <i class="fas fa-edit"></i>
+                </a>
+                <a href="{% url 'empleado_delete' c.id %}"  type="button" class="btn btn-danger btn-xs btn-flat" >
+                    <i class="fas fa-trash-alt"></i>
+                </a>
+            </td>
+        </tr>
+    {% endfor %}
+
+
+
+{% endblock %}
+
+{% block button %}
+    <div class="card-footer">
+
+        <a href="{% url 'empleado_create' %}" class="btn btn-primary btn-flat btnTest">
+            <i class="fas fa-plus"></i> Crear Empleado
+        </a>
+
+        <a href="{% url 'index' %}" class="btn btn-danger btn-flat">
+            <i class="fas fa-times"></i> Cancelar
+        </a>
+    </div>
+
+{% endblock %}
